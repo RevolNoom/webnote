@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>140</y>
+      <w>420</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>HomeServlet: Minh
+--
+1. Chứa các ghi chú và tiêu đề 
+2. Chứa thanh công cụ, thanh công cụ có nút đăng nhập
+3. Sử dụng cookie, lưu ghi chú của người dùng trong 
+    trường hợp người dùng offline, hoặc không muốn
+    đăng ký tài khoản
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>140</y>
+      <w>320</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>NoteServlet: Lâm
+--
+1. Chứa nội dung ghi chú.
+2. Người dùng có thể edit.
+3. Sau khi người dùng edit xong vài giây,
+    gửi cập nhật ghi chú cho server
+4. Có nút quay lại (chữ V, save) 
+    để quay về HomeServlet.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>350</y>
+      <w>420</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>LoginServlet: Mạnh
+--
+1. Chứa hai thanh để điền tài khoản và mật khẩu.
+2. Chứa nút Đăng nhập để gửi tài khoản và mật khẩu 
+    cho server 
+3. Chứa nút quay lại để trở về HomeServlet.
+4. Chứa nút đăng ký để chuyển sang RegisterServlet.  
+5. Sau khi đăng nhập thành công, quay về HomeServlet, 
+cập nhật các ghi chú của người dùng đó về máy</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>590</y>
+      <w>420</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>RegisterServlet: Mạnh
+--
+1. Chứa một thanh điền tài khoản,
+    hai thanh để điền mật khẩu và xác nhận lại mật 
+2. Chứa nút Đăng ký để gửi tài khoản và mật khẩu 
+    cho server 
+3. Chứa nút quay lại để trở về LoginServlet
+4. Chứa nút Home để trở về HomeServlet
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>250</y>
+      <w>190</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Đăng nhập thành công
+hoặc bấm quay lại </panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>250</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+Bấm nút đăng nhập </panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>490</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+Bấm nút đăng ký</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>490</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Đăng ký thành công
+hoặc bấm quay lại </panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>30</x>
+      <y>220</y>
+      <w>230</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Bấm về Home</panel_attributes>
+    <additional_attributes>210.0;10.0;10.0;10.0;10.0;450.0;210.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>200</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Bấm vào một chiếc ghi chú</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>160</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+Bấm vào nút quay lại</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
