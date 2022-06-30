@@ -53,6 +53,7 @@ public class NoteServlet extends HttpServlet {
 			Scanner s = new Scanner(style);
 			while (s.hasNextLine())
 				result += s.nextLine();
+			s.close();
 		}
 		catch (Exception e)
 		{
