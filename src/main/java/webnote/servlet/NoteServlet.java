@@ -1,4 +1,4 @@
-package webnote;
+package webnote.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,6 +12,7 @@ import java.util.Scanner;
 /**
  * Servlet implementation class NoteServlet
  */
+@WebServlet("/note")
 public class NoteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -69,7 +70,7 @@ public class NoteServlet extends HttpServlet {
 
 	protected String AddNoteContentTextBox()
 	{
-		return "<div><textarea class='note-content-textbox' placeholder='Description...'></textarea></div>";
+		return "<div><textarea class='note-content-textbox' placeholder='Write something here.'></textarea></div>";
 	}
 	
 	protected String AddSaveButton()

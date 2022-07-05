@@ -1,4 +1,4 @@
-package webnote.filter;
+/*package webnote.filter;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -26,6 +26,7 @@ import webnote.utils.MyUtils;
  *
  */
 
+/*
 @WebFilter(filterName = "jdbcFilter", urlPatterns = { "/*" })
 public class JDBCFilter implements Filter {
 
@@ -127,4 +128,4 @@ public class JDBCFilter implements Filter {
 
 	}
 
-}
+}*/

@@ -1,4 +1,4 @@
-package webnote.filter;
+/*package webnote.filter;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -25,6 +25,7 @@ import webnote.utils.MyUtils;
  * @author Manh Dao
  *
  */
+/*
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
 public class CookieFilter implements Filter {
 
@@ -75,4 +76,4 @@ public class CookieFilter implements Filter {
 		chain.doFilter(request, response);
 	}
 
-}
+}*/

@@ -35,6 +35,7 @@ public class UserInfoServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/login");
 			return;
 		}
+		
 		// Store info to the request attribute before forwarding.
 		request.setAttribute("user", loginedUser);
 

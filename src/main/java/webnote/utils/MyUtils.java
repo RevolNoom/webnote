@@ -14,17 +14,6 @@ public class MyUtils {
 	public static final String ATT_NAME_CONNECTION = "ATTRIBUTE_FOR_CONNECTION";
 	public static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
 	
-	// Store connection in request attribute
-	// (Informed stored only exist during request)
-	public static void storeConnection(ServletRequest request, Connection conn) {
-		request.setAttribute(ATT_NAME_CONNECTION, conn);
-	}
-	
-	// Get the Connection object has been stored in attribute of the request.
-	public static Connection getStoredConnection(ServletRequest request) {
-		Connection conn = (Connection) request.getAttribute(ATT_NAME_CONNECTION);
-		return conn;
-	}
 
 	// Store user info in Session.
 	public static void storeLoginedUser(HttpSession session, UserAccount loginedUser) {

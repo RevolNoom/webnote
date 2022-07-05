@@ -1,4 +1,4 @@
-package webnote.filter;
+/*package webnote.filter;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -44,3 +44,4 @@ public class EncodingFilter implements Filter {
 	}
 
 }
+*/
