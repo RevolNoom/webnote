@@ -42,7 +42,7 @@ public class NoteServlet extends HttpServlet {
 	
 	protected String GetNoteServletContent()
 	{
-		return "<html>" + GetStyle() + AddTitleTextBox() + AddNoteContentTextBox() + AddSaveButton() + "</html>";
+		return "<html>" + GetStyle() + AddTitleTextBox() + AddNoteContentTextBox() + AddSaveButton() + AddExitButton() + "</html>";
 	}
 
 	protected String GetStyle()
@@ -76,6 +76,11 @@ public class NoteServlet extends HttpServlet {
 	protected String AddSaveButton()
 	{
 		return "<button class='save-button'>SAVE</button>";
+	}
+	
+	protected String AddExitButton()
+	{
+		return "<button class='exit-button'>EXIT</button>";
 	}
 }
 
