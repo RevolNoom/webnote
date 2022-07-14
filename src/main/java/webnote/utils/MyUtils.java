@@ -1,7 +1,4 @@
 package webnote.utils;
-
-import java.sql.Connection;
-import jakarta.servlet.ServletRequest;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

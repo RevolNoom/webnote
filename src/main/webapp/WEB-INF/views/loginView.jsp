@@ -28,15 +28,17 @@
                <td><input type="checkbox" name="rememberMe" value= "Y" /> </td>
             </tr>
             <tr>
-               <td colspan ="2">
-                  <input type="submit" value= "Submit" />
-                  <a href="${pageContext.request.contextPath}/">Cancel</a>
-               </td>
+            	<td>
+            	</td>
+            	
+               <td>
+                  <input type="submit" value="Submit" />
+                  <a href="${pageContext.request.contextPath}/register">Register</a>
+               </td> 
             </tr>
          </table>
       </form>
 
-      <p style="color:blue;">User Name: tom, password: tom001 or jerry/jerry001</p>
 
       <jsp:include page="_footer.jsp"></jsp:include>
    </body>

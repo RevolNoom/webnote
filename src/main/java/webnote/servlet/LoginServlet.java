@@ -1,9 +1,7 @@
 package webnote.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -46,52 +44,48 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
-		String rememberMeStr = request.getParameter("rememberMe");
+		///String rememberMeStr = request.getParameter("rememberMe");
 		//boolean remember = "Y".equals(rememberMeStr);
 
 
-		if (userName == null || password == null || userName.length() == 0 || password.length() == 0) {
+		if (userName == null || password == null || userName.length() == 0 || password.length() == 0) 
+		{
 			RedirectToLoginOnError(request, response, "Required username and password!");
+			return;
 		} 
-		
-		SQLite s = new SQLite("webnote.db");
-		
-		// Find the user in the DB.
-		ResultSet rs = s.Query("SELECT * FROM User WHERE " + userName + " == Username and " + password  +" == password;");
-			
-		// I don't care wtf this resultset has.
-		// If there's an entry, that's the right pair of username and password
-		if (rs == null)
-			RedirectToLoginOnError(request, response, "User Name or password invalid");		
-	
-		
-		//HttpSession session = request.getSession();
-		//MyUtils.storeLoginedUser(session, user);
 
-		// If user checked "Remember me".
-		/*
-		if (remember) {
-			MyUtils.storeUserCookie(response, user);
-		}
-		// Else delete cookie.
-		else {
-			MyUtils.deleteUserCookie(response);
-		}
-		*/
+		try
+		{
+			// Find the user in the DB.
+			PreparedStatement ps = SQLite.get("webnote.db").prepareStatement("SELECT Count(*) FROM User WHERE ? == Username and ? == password;");
+			ps.setString(1, userName);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();				
+			if (rs.getInt(1) == 0)
+			{
+				RedirectToLoginOnError(request, response, "User Name or password invalid");		
+				return;
+			}
+			ps.close();
+			rs.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error fetching user data in database.");
+			RedirectToLoginOnError(request, response, "User Name or password invalid");		
+			return;
+		} 
+	
+		System.out.println("Logged in successfully");
 		// Redirect to userInfo page.
+		HttpSession s = request.getSession();
+		s.setAttribute("username", userName);
 		response.sendRedirect(request.getContextPath() + "/userInfo");
 	}
 
 	protected void RedirectToLoginOnError(HttpServletRequest request, HttpServletResponse response, String errorMsg) throws ServletException, IOException
 	{
-		//UserAccount user = new UserAccount();
-		//user.setUserName(userName);
-		//user.setPassword(password);
-
-		// Store information in request attribute, before forward.
 		request.setAttribute("errorString", errorMsg);
-		//request.setAttribute("user", user);
-
 		doGet(request, response);
 	}
 }
